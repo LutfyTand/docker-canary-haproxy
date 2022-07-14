@@ -48,7 +48,7 @@ function check_container() {
 function docker_pull() {
 	SERV_NAME=$1
 	TAG_NAME=$2
-	echo "Docker: Pulling the latest image from ECR Repository"
+	echo "Docker: Pulling the version $TAG_NAME image from ECR Repository"
 	docker pull $aws_ecr/$SERV_NAME:$TAG_NAME
 }
 
@@ -91,14 +91,14 @@ function docker_run() {
 	SERV_NAME=$1
 	TAG_NAME=$2
 	HA_PORT=$3
-    ADMIN_PORT=$4
+	ADMIN_PORT=$4
 	CONTAINER_NAME="${SERV_NAME}-${TAG_NAME}"
 	PORT_DEPLOY1=`docker ps | grep $port_one`
 	PORT_DEPLOY2=`docker ps | grep $port_two`
-    DIR_HOST_LOGS=`logs_dir`
-    DIR_LOGS=`logs_dir`
-    DIR_HOST_CONFIG=`config_dir`
-    DIR_CONFIG=`config_dir`
+	DIR_HOST_LOGS=`logs_dir`
+	DIR_LOGS=`logs_dir`
+	DIR_HOST_CONFIG=`config_dir`
+	DIR_CONFIG=`config_dir`
 	echo "Docker: Starting Run"
 	if [[ -z "$PORT_DEPLOY1" ]]; then
 		echo "starting docker container on port $port_one"
