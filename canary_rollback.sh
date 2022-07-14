@@ -64,9 +64,9 @@ function docker_remove_image() {
 		echo "Nothing Untagged Image(s) to be deleted."
 	fi
 
-    ### REMOVE ALL UNUSED IMAGES
-    echo "Docker: remove images unused"
-    docker image prune -af
+	### REMOVE ALL UNUSED IMAGES
+	echo "Docker: remove images unused"
+	docker image prune -af
 }
 
 function get_weight_haproxy() {
